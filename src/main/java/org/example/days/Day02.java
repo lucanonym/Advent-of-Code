@@ -34,11 +34,11 @@ public class Day02 {
         // x = loose, y = draw, Z = win
         // A = Rock, B = Paper, C = scissors
         int sum = lines.stream()
-                .mapToInt(line -> pointMap1.get(new Pair(String.valueOf(line.charAt(0)), String.valueOf(line.charAt(2)))))
+                .mapToInt(line -> pointMap1.get(new Pair<>(String.valueOf(line.charAt(0)), String.valueOf(line.charAt(2)))))
                 .sum();
         System.out.println(sum);
         int sum2 = lines.stream()
-                .mapToInt(line -> pointMap2.get(new Pair(String.valueOf(line.charAt(0)), String.valueOf(line.charAt(2)))))
+                .mapToInt(line -> pointMap2.get(new Pair<>(String.valueOf(line.charAt(0)), String.valueOf(line.charAt(2)))))
                 .sum();
         System.out.println(sum2);
 

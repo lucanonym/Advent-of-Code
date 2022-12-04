@@ -1,0 +1,12 @@
+
+E
+java:S3740-"/Provide the parametrized type for this generic.(Ø’¢æ
+E
+java:S3740."/Provide the parametrized type for this generic.(ÞÖºà
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ùËªÚþÿÿÿÿ
+R
+java:S1612"<Replace this lambda with method reference 'Day04::getRange'.(ù„œ§
+S	java:S106""9Replace this use of System.out or System.err by a logger.(˜óøÿÿÿÿ
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(Ž÷·­
+Q
+java:S1128	"4Remove this unused import 'java.util.stream.Stream'.(ó÷Ž”8õô¡ùÍ0
