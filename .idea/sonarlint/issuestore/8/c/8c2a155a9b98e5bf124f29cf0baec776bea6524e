@@ -1,10 +1,0 @@
-
-Z
-java:S2583"DChange this condition so that it does not always evaluate to "false"(¡ÈêÙ
-Z
-java:S2583 "DChange this condition so that it does not always evaluate to "false"(ı¢¹à
-W
-java:S1854"ARemove this useless assignment to local variable "lineSeparator".(•†Ö
-H
-java:S1481"2Remove this unused "lineSeparator" local variable.(•†Ö
-Z	java:S1060"9Replace this use of System.out or System.err by a logger.(¸šñÙüÿÿÿÿ8ØşØÍ0
