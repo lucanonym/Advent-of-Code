@@ -4,6 +4,7 @@ import Prelude hiding (lines)
 
 data Move = Move {red :: Int, blue:: Int, green::Int}
     deriving (Eq, Show)
+
 extractGame = pack "Game "
 delimiter = pack ":"
 replacement = pack ""
@@ -11,16 +12,17 @@ moveDelimiter = pack ";"
 blueC = pack "blue"
 redC = pack "red"
 greenC = pack "green"
+colorDelimiter = pack ","
 
 main = do
-    content <- readFile "resources/test.txt"
+    content <- readFile "resources/input.txt"
     print . part1 . lines $ pack content
 
 gameIds :: [[Text]] -> [Integer]
 gameIds = map unwrapId
 
-part1 :: [Text] -> [(Integer, [Move])]
-part1 input = filter isPossible (zip (gameIds $ parseInput input) (parseMoves input))
+part1 :: [Text] -> Integer
+part1 input = foldr tpSum 0 $ filter isPossible (zip (gameIds $ parseInput input) (parseMoves input))
 
 parseMoves :: [Text] -> [[Move]]
 parseMoves = map $ toMoves . splitOn moveDelimiter . head . tail . splitOn delimiter
@@ -52,7 +54,7 @@ isPossible :: (Integer, [Move]) -> Bool
 isPossible tp = foldr (\x y -> checkGame x && y) True (snd tp)
 
 checkGame :: Move -> Bool
-checkGame (Move r g b) = (r <= 12) && (g <= 13) && (b <= 14)
+checkGame (Move r b g) = (r <= 12) && (g <= 13) && (b <= 14)
 
 parseInput :: [Text] -> [[Text]]
 parseInput = map $ splitOn delimiter
@@ -62,7 +64,4 @@ tpSum tp x = fst tp + x
 
 unwrapId :: [Text] -> Integer
 unwrapId str = read . unpack $ replace extractGame replacement $ head str
-
-colorDelimiter = pack ","
-
 
