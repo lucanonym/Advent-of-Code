@@ -17,12 +17,30 @@ colorDelimiter = pack ","
 main = do
     content <- readFile "resources/input.txt"
     print . part1 . lines $ pack content
+    print . part2 . lines $ pack content
 
 gameIds :: [[Text]] -> [Integer]
 gameIds = map unwrapId
 
 part1 :: [Text] -> Integer
 part1 input = foldr tpSum 0 $ filter isPossible (zip (gameIds $ parseInput input) (parseMoves input))
+
+part2 input = foldr multTp 0 $ zipWith (curry powerHigh) (gameIds $ parseInput input) (parseMoves input)
+
+powerHigh :: (Integer, [Move]) -> Move
+powerHigh tp = maxGame $ snd tp
+
+multTp :: Move -> Int -> Int
+multTp (Move r b g) x = r * b * g + x
+maxGame :: [Move] -> Move
+maxGame = foldr maxTp (Move 0 0 0)
+
+maxTp :: Move -> Move -> Move
+maxTp (Move r1 b1 g1) (Move r2 b2 g2) = Move {
+    red = max r1 r2,
+    blue = max b1 b2,
+    green = max g1 g2
+}
 
 parseMoves :: [Text] -> [[Move]]
 parseMoves = map $ toMoves . splitOn moveDelimiter . head . tail . splitOn delimiter
