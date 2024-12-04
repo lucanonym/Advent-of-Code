@@ -10,3 +10,7 @@ let () =
     Printf.printf "------ Day 03 ------\n";
     Printf.printf "Part 1 solution is %d\n" Aoc2024.SolutionDay03.solve1;
     Printf.printf "Part 2 solution is %d\n" Aoc2024.SolutionDay03.solve2;
+    Printf.printf "------ Day 04 ------\n";
+    Printf.printf "Part 1 solution is %d\n" Aoc2024.SolutionDay04.solve1;
+    Printf.printf "Part 2 solution is %d\n" Aoc2024.SolutionDay04.solve2;
+
