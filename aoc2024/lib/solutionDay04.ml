@@ -98,7 +98,7 @@ let findMatch grid = Array.mapi (fun rowInd row -> findXmas grid row rowInd) gri
 
 let findMatch2 grid = Array.mapi (fun rowInd row -> findMas grid row rowInd) grid
 
-let (solve : int -> int) = findMatch create_Grid |> Array.fold_right (fun l res -> Array.fold_right (+) l 0 + res) 
+let solve = findMatch create_Grid |> Array.fold_right (fun l res -> Array.fold_right (+) l 0 + res) 
 let solve1 = solve 0
 let find2 = findMatch2 create_Grid |> Array.fold_right (fun l res -> Array.fold_right (+) l 0 + res) 
 let solve2 = find2 0
